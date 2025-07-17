@@ -18,6 +18,7 @@ export default async function sse(request: Request) {
   return new Response(body, {
     headers: {
       "Content-Type": "text/event-stream",
+      "Access-Control-Allow-Origin": "https://microsoftedge.github.io"
     },
   });
 }
