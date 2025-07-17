@@ -1,5 +1,6 @@
 export default async function sse(request: Request) {
   let timerId: number | undefined;
+
   const body = new ReadableStream({
     start(controller) {
       timerId = setInterval(() => {
@@ -15,6 +16,7 @@ export default async function sse(request: Request) {
       }
     },
   });
+
   return new Response(body, {
     headers: {
       "Content-Type": "text/event-stream",
